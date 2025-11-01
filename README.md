@@ -62,4 +62,109 @@ This system supports:
 - Full point earning history available for each user
 
 ---
+## Database Installation & Restore Guide
 
+### 1. Install PostgreSQL
+
+#### macOS (Postgres.app)
+Download: https://postgresapp.com/
+```
+pg_ctl -D ~/Library/Application\ Support/Postgres/var-18 start
+```
+
+#### macOS (Homebrew)
+```
+brew install postgresql@18
+brew services start postgresql@18
+```
+
+#### Windows (EnterpriseDB Installer)
+Download: https://www.postgresql.org/download/windows/
+
+#### Linux (Ubuntu/Debian)
+```
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+sudo service postgresql start
+```
+
+---
+
+### 2. Create a Database
+```
+createdb p2pbook
+```
+If needed:
+```
+psql -U postgres -c "CREATE DATABASE p2pbook OWNER postgres;"
+```
+
+---
+
+### 3. (Optional) Set Up Passwordless Restore
+
+#### macOS/Linux
+Create:
+```
+~/.pgpass
+```
+Content:
+```
+localhost:5432:p2pbook:postgres:<yourpassword>
+```
+Permissions:
+```
+chmod 600 ~/.pgpass
+```
+
+#### Windows
+Create:
+```
+%APPDATA%/postgresql/pgpass.conf
+```
+Same content.
+
+---
+
+### 4. Restore From Database Dump
+
+#### Custom Format (.dump)
+```
+pg_restore -d p2pbook /path/to/dump-p2pbook.dump
+```
+Parallel restore:
+```
+pg_restore -j 4 -d p2pbook /path/to/dump-p2pbook.dump
+```
+
+#### SQL File (.sql)
+```
+psql -d p2pbook -f /path/to/dump-p2pbook.sql
+```
+
+---
+
+### 5. Verify the Restore
+```
+psql p2pbook
+\dt
+```
+You should see all tables under the **bookx** schema.
+
+---
+
+### 6. Configure API Connection
+Update your `appsettings.json`:
+```json
+"ConnectionStrings": {
+  "DefaultConnection": "Host=localhost;Port=5432;Database=p2pbook;Username=postgres;Password=yourpassword"
+}
+```
+
+---
+
+### Quick Restore Commands
+```
+createdb p2pbook
+pg_restore -d p2pbook dump-p2pbook.dump
+```
