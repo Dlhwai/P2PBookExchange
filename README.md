@@ -61,6 +61,17 @@ This system supports:
 - Multipliers stored in the database
 - Full point earning history available for each user
 
+Project Roadmap & Future Milestones
+
+Phases
+1. Core book exchange system implemented (users, books, trades, points, preferences).
+2. Develop iOS/Android app with notifications, ISBN scanning, and improved UX.
+3. Implement Reward system: point redemption for internal perks and partner rewards.
+4. Implement social system: Add messaging, bookmarking, following, reviews, and basic social interactions.
+5. Enhance community engagement: Enable book donations with bonus points and internal library borrowing.
+6. Build admin dashboards for trade metrics, user insights, and platform monitoring
+
+Expand ecosystem with partnerships, gamification, and stronger community engagement.
 ---
 ## Database Installation & Restore Guide
 
