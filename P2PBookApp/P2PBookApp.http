@@ -1,0 +1,6 @@
+@P2PBookAPI_HostAddress = http://localhost:5220
+
+GET {{P2PBookAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
