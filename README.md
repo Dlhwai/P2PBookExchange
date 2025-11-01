@@ -62,7 +62,7 @@ This system supports:
 - Full point earning history available for each user
 
 Project Roadmap & Future Milestones
-
+---
 Phases
 1. Core book exchange system implemented (users, books, trades, points, preferences).
 2. Develop iOS/Android app with notifications, ISBN scanning, and improved UX.
@@ -71,8 +71,8 @@ Phases
 5. Enhance community engagement: Enable book donations with bonus points and internal library borrowing.
 6. Build admin dashboards for trade metrics, user insights, and platform monitoring
 
-Expand ecosystem with partnerships, gamification, and stronger community engagement.
----
+### Expand ecosystem with partnerships, gamification, and stronger community engagement.
+
 ## Database Installation & Restore Guide
 
 ### 1. Install PostgreSQL
