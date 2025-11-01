@@ -72,7 +72,43 @@ Phases
 6. Build admin dashboards for trade metrics, user insights, and platform monitoring
 
 ### Expand ecosystem with partnerships, gamification, and stronger community engagement.
+### Quick Restore Commands
+```
+createdb p2pbook
+pg_restore -d p2pbook dump-p2pbook.dump
+```
 
+
+## Source Code Setup (Quick Guide)
+
+### 1. Requirements
+- .NET 8 SDK
+- PostgreSQL 14+
+- (Optional) Postman/Thunder Client
+
+### 2. Download Project
+```bash
+git clone https://github.com/<your-username>/P2PBookApp.git
+cd P2PBookApp
+```
+—or extract the ZIP.
+
+### 3. Install Dependencies
+```bash
+dotnet restore
+```
+
+### 4. Configure Database
+Edit `appsettings.json`:
+```json
+"ConnectionStrings": {
+  "DefaultConnection": "Host=localhost;Port=5432;Database=p2pbook;Username=postgres;Password=<your-password>"
+}
+```
+### 5. View APIs
+```bash
+http://localhost:5220/swagger/index.html
+```
 ## Database Installation & Restore Guide
 
 ### 1. Install PostgreSQL
